@@ -37,7 +37,7 @@ func Register(engine *gin.Engine) {
 }
 
 func metricsHandler() gin.HandlerFunc {
-	prmHandler := prometheus.Handler()
+	prmHandler := promhttp.Handler()
 
 	return func(c *gin.Context) {
 		prmHandler.ServeHTTP(c.Writer, c.Request)
